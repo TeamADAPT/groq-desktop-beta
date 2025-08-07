@@ -6,10 +6,10 @@
   "type": "commonjs",
   "packageManager": "pnpm@10.9.0",
   "scripts": {
-    "dev": "concurrently \"pnpm dev:vite\" \"pnpm dev:electron\"",
+    "dev": "node api.js && concurrently \"pnpm dev:vite\" \"pnpm dev:electron\"",
     "dev:vite": "vite",
     "dev:electron": "cross-env NODE_ENV=development electron .",
-    "build": "vite build",
+    "build": "node api.js && vite build",
     "build:electron": "electron-builder",
     "dist": "pnpm build && pnpm build:electron",
     "dist:mac": "npm build && electron-builder --mac",
